@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -13,6 +14,7 @@ import app from "../firebase/Firebase.config";
 export const AuthContext = createContext();
 const auth = getAuth(app);
 const Provider = new GoogleAuthProvider();
+const Providergit = new GithubAuthProvider();
 
 const AuthProvaider = ({ children }) => {
   //user state cheated . it carrey all user information
@@ -30,6 +32,10 @@ const AuthProvaider = ({ children }) => {
   const loginGoogle = () => {
     return signInWithPopup(auth, Provider);
   };
+  //login with github
+  const loginGithub = () => {
+    return signInWithPopup(auth, Providergit);
+  };
   //Update a user's profile
   const updateNamePhoto = (profile) => {
     return updateProfile(auth.currentUser, profile);
@@ -41,7 +47,14 @@ const AuthProvaider = ({ children }) => {
     });
     return () => unsubscribe();
   }, []);
-  const value = { user, register, login, updateNamePhoto, loginGoogle };
+  const value = {
+    user,
+    register,
+    login,
+    updateNamePhoto,
+    loginGoogle,
+    loginGithub,
+  };
   return (
     <div>
       <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

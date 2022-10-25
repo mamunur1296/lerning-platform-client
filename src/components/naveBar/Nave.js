@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { FaAsymmetrik } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvaider";
+import { FaUserCircle } from "react-icons/fa";
 
 const Nave = () => {
   const [isTogold, setIsTogold] = useState(false);
@@ -81,22 +82,40 @@ const Nave = () => {
             <li>
               <Link to="/blog">Blog</Link>
             </li>
-            <li>
-              <Link to="/cources">{user?.email}</Link>
-              <ul className="p-2">
+            {user.uid ? (
+              <>
                 <li>
-                  <a>Submenu 1</a>
+                  <div className="">
+                    {user?.photoURL ? (
+                      <img
+                        className="h-8 rounded-full"
+                        src={user?.photoURL}
+                        alt=""
+                      />
+                    ) : (
+                      <FaUserCircle className="text-3xl "></FaUserCircle>
+                    )}
+                  </div>
+                  <ul className="p-2">
+                    <li>
+                      <a>Submenu 1</a>
+                    </li>
+                    <li>
+                      <a>Submenu 2</a>
+                    </li>
+                  </ul>
                 </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
+              </>
+            ) : (
+              <>
+                <div className="mr-5">
+                  <Link to="/login">Login</Link>
+                </div>
+              </>
+            )}
           </ul>
         </div>
-        <div className="mr-5">
-          <Link to="/login">Login</Link>
-        </div>
+
         <div>
           <button onClick={() => setIsTogold(!isTogold)}>
             {isTogold ? "Light" : "dark"}
