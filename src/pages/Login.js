@@ -1,9 +1,15 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvaider";
 
 const Login = () => {
-  const { login, loginGoogle, loginGithub } = useContext(AuthContext);
+  //error section
+  const [error, setError] = useState("");
+  const { login, loginGoogle, loginGithub, setLoding } =
+    useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   //email and password login
   const handalLoginFrom = (e) => {
     e.preventDefault();
@@ -13,28 +19,43 @@ const Login = () => {
     login(email, password)
       .then((res) => {
         const user = res.user;
-        console.log(user);
+        form.reset();
+        navigate(from, { replace: true });
+        setError("");
       })
       .catch((error) => {
         console.log(error);
-      });
-    console.log(email, password);
+        setError(error.message);
+      })
+
+      .console.log(email, password);
   };
   //google login
   const handalGoogleLogin = () => {
     loginGoogle()
-      .then((res) => {})
-      .catch((error) => console.log(error));
+      .then((res) => {
+        navigate(from, { replace: true });
+        setError("");
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
   };
   //github login
   const handalGitHubLogin = () => {
     loginGithub()
-      .then((res) => {})
-      .catch((error) => console.log(error));
+      .then((res) => {
+        navigate(from, { replace: true });
+        setError("");
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
   };
   return (
     <div className="">
       <div className="w-full mx-auto  max-w-md p-8 space-y-3 rounded-xl  text-black">
+        <p className="text-red-400">{error}</p>
         <h1 className="text-2xl font-bold text-center">Login</h1>
         <form
           onSubmit={handalLoginFrom}

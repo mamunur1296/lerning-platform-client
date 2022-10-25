@@ -6,7 +6,12 @@ import { FaUserCircle } from "react-icons/fa";
 
 const Nave = () => {
   const [isTogold, setIsTogold] = useState(false);
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
+  const handalLOgout = () => {
+    logout()
+      .then((res) => {})
+      .catch((error) => {});
+  };
 
   return (
     <div className="w-11/12 mx-auto">
@@ -98,7 +103,9 @@ const Nave = () => {
                   </div>
                   <ul className="p-2">
                     <li>
-                      <a>Submenu 1</a>
+                      <Link>
+                        <button onClick={handalLOgout}>log out</button>
+                      </Link>
                     </li>
                     <li>
                       <a>Submenu 2</a>
