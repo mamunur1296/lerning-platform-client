@@ -45,6 +45,12 @@ const Corces = ({ data }) => {
               </svg>
             </Link>
           </div>
+
+          <Link to={`/courcesdetails/${id}`}>
+            <button className="btn w-full mt-20 btn-outline btn-secondary">
+              Details
+            </button>
+          </Link>
         </div>
         <div>
           <img

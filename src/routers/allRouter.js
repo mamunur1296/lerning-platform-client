@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import CourcsDetails from "../components/CorceDetails/CourcsDetails";
 import AllCorces from "../components/cources/AllCorces";
 import Home from "../components/Home/Home";
 import Mainlayout from "../layOut/Mainlayout";
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
             element: <AllCorces></AllCorces>,
           },
         ],
+      },
+      {
+        path: "/courcesdetails/:id",
+        element: <CourcsDetails></CourcsDetails>,
       },
       {
         path: "/login",
