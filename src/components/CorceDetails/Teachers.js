@@ -12,9 +12,9 @@ const Teachers = ({ teacher }) => {
         </div>
         <div>
           <h6 className="mb-3 text-xl font-bold leading-5">
-            {teacher.teacher1}
+            {teacher?.teacher1}
           </h6>
-          <p className="text-sm text-gray-900">{teacher.work}</p>
+          <p className="text-sm text-gray-900">{teacher?.work}</p>
         </div>
       </div>
     </div>

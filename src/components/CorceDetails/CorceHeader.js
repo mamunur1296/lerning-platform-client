@@ -12,7 +12,7 @@ const CorceHeader = ({ data }) => {
     <div>
       <section className="mt-10">
         <div className="flex justify-between align-middle ">
-          <h1 className="text-4xl  border-3 text-gray-800 ">{data.title}</h1>
+          <h1 className="text-4xl  border-3 text-gray-800 ">{data?.title}</h1>
           <div>
             <div className="text-center">
               <div className="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-12 sm:h-12">
@@ -30,7 +30,7 @@ const CorceHeader = ({ data }) => {
                 </div>
                 <h6 className="mb-2 text-sm font-bold leading-5 tracking-wider uppercase">
                   <p>Live Class</p>
-                  <p className="text-red-600">{data.class}</p>
+                  <p className="text-red-600">{data?.class}</p>
                 </h6>
               </div>
               <div className="text-center">
@@ -39,7 +39,7 @@ const CorceHeader = ({ data }) => {
                 </div>
                 <h6 className="mb-2 text-sm font-bold leading-5 tracking-wider uppercase">
                   <p>Recorded class and lecture slides</p>
-                  <p className="text-red-600">{data.subject}</p>
+                  <p className="text-red-600">{data?.subject}</p>
                 </h6>
               </div>
               <div className="text-center">
@@ -51,7 +51,7 @@ const CorceHeader = ({ data }) => {
                     Solutions to each chapter's impersonal questions with
                     explanations
                   </p>
-                  <p className="text-red-600">{data.mcq}</p>
+                  <p className="text-red-600">{data?.mcq}</p>
                 </h6>
               </div>
             </div>
