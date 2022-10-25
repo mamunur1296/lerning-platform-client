@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaAsymmetrik } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvaider";
 
 const Nave = () => {
   const [isTogold, setIsTogold] = useState(false);
+  const { user } = useContext(AuthContext);
 
   return (
     <div className="w-11/12 mx-auto">
@@ -80,7 +82,7 @@ const Nave = () => {
               <Link to="/blog">Blog</Link>
             </li>
             <li>
-              <Link to="/cources">Profile</Link>
+              <Link to="/cources">{user?.email}</Link>
               <ul className="p-2">
                 <li>
                   <a>Submenu 1</a>

@@ -1,7 +1,9 @@
-import React from "react";
+import { useContext, React } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvaider";
 
 const Register = () => {
+  const { register, updateNamePhoto } = useContext(AuthContext);
   const handalLoginFrom = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -9,7 +11,26 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
+    register(email, password)
+      .then((res) => {
+        const user = res.user;
+        console.log(user);
+        handalUpdateProfile(name, photo);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
     console.log(name, photo, email, password);
+  };
+  const handalUpdateProfile = (name, photo) => {
+    const profile = {
+      displayName: name,
+      photoURL: photo,
+    };
+    updateNamePhoto(profile)
+      .then((res) => {})
+      .catch((error) => console.log(error));
   };
   return (
     <div className="">
