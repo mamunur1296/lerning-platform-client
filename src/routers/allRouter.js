@@ -30,6 +30,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "/courcesdetails/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allcources/${params.id}`),
         element: <CourcsDetails></CourcsDetails>,
       },
       {
