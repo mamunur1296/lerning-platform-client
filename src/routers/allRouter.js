@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import AllCorces from "../components/cources/AllCorces";
 import Home from "../components/Home/Home";
 import Mainlayout from "../layOut/Mainlayout";
 import Cources from "../pages/Cources";
@@ -16,7 +17,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/cources",
+        loader: () => fetch("http://localhost:5000/corcesCatagory"),
         element: <Cources></Cources>,
+        children: [
+          {
+            path: "/cources",
+            loader: () => fetch("http://localhost:5000/allcources"),
+            element: <AllCorces></AllCorces>,
+          },
+        ],
       },
       {
         path: "/login",
