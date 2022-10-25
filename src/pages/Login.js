@@ -1,35 +1,44 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
+  const handalLoginFrom = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+  };
   return (
     <div className="">
       <div className="w-full mx-auto  max-w-md p-8 space-y-3 rounded-xl  text-black">
         <h1 className="text-2xl font-bold text-center">Login</h1>
         <form
+          onSubmit={handalLoginFrom}
           novalidate=""
           action=""
           className="space-y-6 ng-untouched ng-pristine ng-valid"
         >
           <div className="space-y-1 text-sm">
-            <label for="username" className="block text-gray-400">
-              Username
+            <label htmlFor="username" className="block text-gray-400">
+              Email
             </label>
             <input
-              type="text"
-              name="username"
-              id="username"
-              placeholder="Username"
+              required
+              type="email"
+              name="email"
+              placeholder="Enter your Email"
               className="w-full px-4 py-3 rounded-md border-gray-700  text-black focus:border-violet-400"
             />
           </div>
           <div className="space-y-1 text-sm">
-            <label for="password" className="block text-gray-400">
+            <label htmlFor="password" className="block text-gray-400">
               Password
             </label>
             <input
+              required
               type="password"
               name="password"
-              id="password"
               placeholder="Password"
               className="w-full px-4 py-3 rounded-md border-gray-700  text-black focus:border-violet-400"
             />
@@ -39,8 +48,11 @@ const Login = () => {
               </a>
             </div>
           </div>
-          <button className="block w-full p-3 text-center rounded-sm text-gray-900 bg-violet-400">
-            Sign in
+          <button
+            type="submit"
+            className="block w-full p-3 text-center rounded-sm text-gray-900 bg-violet-400"
+          >
+            log in
           </button>
         </form>
         <div className="flex items-center pt-4 space-x-1">
@@ -81,13 +93,9 @@ const Login = () => {
         </div>
         <p className="text-xs text-center sm:px-6 text-gray-400">
           Don't have an account?
-          <a
-            rel="noopener noreferrer"
-            href="#"
-            className="underline text-gray-100"
-          >
-            Sign up
-          </a>
+          <Link to="/register" className="underline text-blue-400">
+            go to Register
+          </Link>
         </p>
       </div>
     </div>
