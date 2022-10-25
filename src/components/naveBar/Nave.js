@@ -82,7 +82,7 @@ const Nave = () => {
             <li>
               <Link to="/blog">Blog</Link>
             </li>
-            {user.uid ? (
+            {user ? (
               <>
                 <li>
                   <div className="">

@@ -19,12 +19,12 @@ export const router = createBrowserRouter([
       },
       {
         path: "/cources",
-        loader: () => fetch("http://localhost:5000/corcesCatagory"),
+        loader: () => fetch("https://all-it-sarver.vercel.app/corcesCatagory"),
         element: <Cources></Cources>,
         children: [
           {
             path: "/cources",
-            loader: () => fetch("http://localhost:5000/allcources"),
+            loader: () => fetch("https://all-it-sarver.vercel.app/allcources"),
             element: <AllCorces></AllCorces>,
           },
         ],
@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
       {
         path: "/courcesdetails/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allcources/${params.id}`),
+          fetch(`https://all-it-sarver.vercel.app/allcources/${params.id}`),
         element: <CourcsDetails></CourcsDetails>,
       },
       {
