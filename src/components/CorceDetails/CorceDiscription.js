@@ -13,7 +13,7 @@ const CorceDiscription = ({ data }) => {
         </div>
       </section>
       <section className="w-full flex justify-center align-middle mx-auto">
-        <Link>
+        <Link to={`/premium/:${data.id}`}>
           <button className="bg-red-500 my-20 py-5 rounded-full px-32 text-white">
             Get Premium Access
           </button>

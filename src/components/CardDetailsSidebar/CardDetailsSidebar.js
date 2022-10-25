@@ -1,14 +1,16 @@
 import React from "react";
-import { Fa500Px, FaUserGraduate } from "react-icons/fa";
+import { FaUserGraduate } from "react-icons/fa";
+import Comunuty from "./Comunuty";
 
 const CardDetailsSidebar = ({ data }) => {
+  console.log(data.community);
   return (
     <section>
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="mx-auto lg:max-w-2xl">
           <div className="relative w-full transition-shadow duration-300 hover:shadow-xl">
             <img
-              className="object-cover w-full h-56 rounded shadow-lg sm:h-64 md:h-80 lg:h-52"
+              className="object-cover w-full h-full rounded shadow-lg sm:h-40 md:h-80 lg:h-52"
               src={data?.img}
               alt=""
             />
@@ -45,9 +47,14 @@ const CardDetailsSidebar = ({ data }) => {
           </span>
         </button>
       </div>
-      <div>
-        <div>
-          <h1> halpFull comunety related this corce</h1>
+      <div className="mt-20 ">
+        <div className="text-4xl  border-3 text-gray-800 ">
+          <h1> Our community is here to help you</h1>
+        </div>
+        <div className="mt-12">
+          {data?.community?.map((com) => (
+            <Comunuty com={com}></Comunuty>
+          ))}
         </div>
       </div>
     </section>

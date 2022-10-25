@@ -5,6 +5,7 @@ import Home from "../components/Home/Home";
 import Mainlayout from "../layOut/Mainlayout";
 import Cources from "../pages/Cources";
 import Login from "../pages/Login";
+import Premium from "../pages/Premium";
 import Register from "../pages/Register";
 
 export const router = createBrowserRouter([
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/premium/:id",
+        element: <Premium></Premium>,
       },
       {
         path: "/register",
