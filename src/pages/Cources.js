@@ -19,7 +19,7 @@ const Cources = () => {
               </p>
             </div>
             <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
-              miss 100% of the shots you don't take
+              Our course list
             </h2>
           </div>
           {catagorys.map((data) => (

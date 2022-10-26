@@ -19,6 +19,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
+        loader: () => fetch("https://all-it-sarver.vercel.app/allcources"),
         element: <Home></Home>,
       },
       {

@@ -1,4 +1,6 @@
 import React from "react";
+import img from "../../assets/favicon.png";
+import { jsPDF } from "jspdf";
 import {
   FaDownload,
   FaCompressArrowsAlt,
@@ -7,18 +9,28 @@ import {
 } from "react-icons/fa";
 
 const CorceHeader = ({ data }) => {
-  console.log(data);
+  const handalPdF = () => {
+    const doc = new jsPDF("a4", false);
+    doc.addImage(img, "png", 10, 10, 10, 10);
+    doc.setFontSize(15);
+    doc.text(20, 16, "All-It-BD");
+    doc.setFontSize(10);
+    doc.text(20, 19, "Programing");
+    doc.setFontSize(30);
+    doc.text(40, 40, data.title);
+    doc.setFontSize(40);
+    doc.text(20, 70, "Welcome to your comunutity");
+    doc.save("all-it-bd-a4.pdf");
+  };
   return (
     <div>
       <section className="mt-10">
         <div className="flex justify-between align-middle ">
           <h1 className="text-4xl  border-3 text-gray-800 ">{data?.title}</h1>
           <div>
-            <div className="text-center">
-              <div className="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-12 sm:h-12">
-                <FaDownload></FaDownload>
-              </div>
-            </div>
+            <button className="btn bg-gray-500" onClick={handalPdF}>
+              <FaDownload></FaDownload>
+            </button>
           </div>
         </div>
         <div>

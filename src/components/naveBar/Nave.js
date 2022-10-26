@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { FaAsymmetrik } from "react-icons/fa";
+import { FaAsymmetrik, FaRegMoon, FaRegSun } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvaider";
 import { FaUserCircle } from "react-icons/fa";
@@ -69,27 +69,29 @@ const Nave = () => {
             </ul>
           </div>
           <Link to="/" className="btn btn-ghost normal-case text-xl">
-            <FaAsymmetrik className="text-5xl"></FaAsymmetrik>
+            <FaAsymmetrik className="text-5xl text-red-700"></FaAsymmetrik>
             <div className="text-start leading-none">
-              <small>All-IT</small>
-              <small className="block text-sm">Programming</small>
+              <small className="text-green-700">All-IT</small>
+              <small className="block text-sm text-green-700">
+                Programming
+              </small>
             </div>
           </Link>
         </div>
         <div className="navbar justify-end  hidden lg:flex">
-          <ul className="menu menu-horizontal p-0">
-            <li>
+          <ul className="menu  menu-horizontal p-0">
+            <li className="hover:text-red-500">
               <Link to="/cources">Cources</Link>
             </li>
-            <li>
+            <li className="hover:text-red-500">
               <Link to="/faq">FAQ</Link>
             </li>
-            <li>
+            <li className="hover:text-red-500">
               <Link to="/blog">Blog</Link>
             </li>
             {user ? (
               <>
-                <li>
+                <li className="hover:text-red-500">
                   <div className="">
                     {user?.photoURL ? (
                       <img
@@ -102,7 +104,7 @@ const Nave = () => {
                     )}
                   </div>
                   <ul className="p-2">
-                    <li>
+                    <li className="hover:text-red-500">
                       <Link>
                         <button onClick={handalLOgout}>log out</button>
                       </Link>
@@ -115,7 +117,7 @@ const Nave = () => {
               </>
             ) : (
               <>
-                <div className="mr-5">
+                <div className="mr-5 hover:text-red-500">
                   <Link to="/login">Login</Link>
                 </div>
               </>
@@ -125,7 +127,11 @@ const Nave = () => {
 
         <div>
           <button onClick={() => setIsTogold(!isTogold)}>
-            {isTogold ? "Light" : "dark"}
+            {isTogold ? (
+              <FaRegMoon className="text-3xl hover:text-green-500"></FaRegMoon>
+            ) : (
+              <FaRegSun className="text-3xl hover:text-green-500"></FaRegSun>
+            )}
           </button>
         </div>
       </div>
