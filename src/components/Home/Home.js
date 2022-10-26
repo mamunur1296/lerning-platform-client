@@ -21,7 +21,7 @@ const Home = () => {
             <button className="px-8 py-3 m-2 text-lg font-semibold rounded bg-gray-300 text-gray-900">
               Call for any information regarding the course
             </button>
-            <button className="px-8 py-3 flex align-middle justify-center m-2 text-lg border bg-red-500 rounded text-gray-50 border-red-800">
+            <button className="px-8 py-3 flex align-middle justify-center m-2 text-lg border bg-red-500 hover:bg-red-600 rounded text-gray-50 border-red-800">
               <p>
                 <FaPhoneAlt className="text-4xl"></FaPhoneAlt>
               </p>

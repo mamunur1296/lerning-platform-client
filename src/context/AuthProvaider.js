@@ -19,7 +19,7 @@ const Providergit = new GithubAuthProvider();
 
 const AuthProvaider = ({ children }) => {
   //user state cheated . it carrey all user information
-  const [user, setUser] = useState({ name: "mamunur" });
+  const [user, setUser] = useState({});
   const [loding, setLoding] = useState(true);
 
   // Regester a new user
@@ -60,6 +60,7 @@ const AuthProvaider = ({ children }) => {
     });
     return () => unsubscribe();
   }, []);
+
   const value = {
     user,
     loding,

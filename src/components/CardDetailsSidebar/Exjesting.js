@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import { FaRegHandPointRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-const SideNav = ({ data }) => {
+const Exjesting = ({ data }) => {
   const { title, id } = data;
-
   return (
     <div>
       <Link to={`/courcesdetails/${id}`}>
@@ -21,4 +20,4 @@ const SideNav = ({ data }) => {
   );
 };
 
-export default SideNav;
+export default Exjesting;

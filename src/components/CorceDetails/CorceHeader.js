@@ -6,6 +6,7 @@ import {
   FaCompressArrowsAlt,
   FaRecordVinyl,
   FaQuestion,
+  FaBookOpen,
 } from "react-icons/fa";
 
 const CorceHeader = ({ data }) => {
@@ -26,10 +27,16 @@ const CorceHeader = ({ data }) => {
     <div>
       <section className="mt-10">
         <div className="flex justify-between align-middle ">
-          <h1 className="text-4xl  border-3 text-gray-800 ">{data?.title}</h1>
+          <h1 className=" text-xl md:text-4xl  border-3 text-gray-800 ">
+            {data?.title}
+          </h1>
           <div>
-            <button className="btn bg-gray-500" onClick={handalPdF}>
-              <FaDownload></FaDownload>
+            <button
+              className="btn me-5  text-sm md:text-xl  bg-green-500"
+              onClick={handalPdF}
+            >
+              Download
+              <FaDownload className=" text-sm md:text-xl ms-5"></FaDownload>
             </button>
           </div>
         </div>
@@ -37,8 +44,8 @@ const CorceHeader = ({ data }) => {
           <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
             <div className="grid grid-cols-2 gap-5 row-gap-5 sm:grid-cols-3 lg:grid-cols-3">
               <div className="text-center">
-                <div className="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-12 sm:h-12">
-                  <FaCompressArrowsAlt></FaCompressArrowsAlt>
+                <div className="flex bg-red-100 items-center justify-center w-10 h-10 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-12 sm:h-12">
+                  <FaBookOpen className="text-3xl text-red-400  "></FaBookOpen>
                 </div>
                 <h6 className="mb-2 text-sm font-bold leading-5 tracking-wider uppercase">
                   <p>Live Class</p>
@@ -46,8 +53,8 @@ const CorceHeader = ({ data }) => {
                 </h6>
               </div>
               <div className="text-center">
-                <div className="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-12 sm:h-12">
-                  <FaRecordVinyl></FaRecordVinyl>
+                <div className="flex bg-green-100 items-center justify-center w-10 h-10 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-12 sm:h-12">
+                  <FaRecordVinyl className="text-3xl text-green-400 "></FaRecordVinyl>
                 </div>
                 <h6 className="mb-2 text-sm font-bold leading-5 tracking-wider uppercase">
                   <p>Recorded class and lecture slides</p>
@@ -55,8 +62,8 @@ const CorceHeader = ({ data }) => {
                 </h6>
               </div>
               <div className="text-center">
-                <div className="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-12 sm:h-12">
-                  <FaQuestion></FaQuestion>
+                <div className="flex bg-red-100 items-center justify-center w-10 h-10 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-12 sm:h-12">
+                  <FaQuestion className="text-3xl text-red-400 "></FaQuestion>
                 </div>
                 <h6 className="mb-2 text-sm font-bold leading-5 tracking-wider uppercase">
                   <p>

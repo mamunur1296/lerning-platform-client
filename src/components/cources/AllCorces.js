@@ -4,7 +4,7 @@ import Corces from "./Corces";
 
 const AllCorces = () => {
   const datas = useLoaderData();
-  console.log(datas);
+
   return (
     <div>
       <h1 className="text-3xl  mt-10">Paid Live Courses</h1>

@@ -51,6 +51,8 @@ export const router = createBrowserRouter([
             <Premium></Premium>
           </PrivateRouter>
         ),
+        loader: ({ params }) =>
+          fetch(`https://all-it-sarver.vercel.app/allcources/${params.id}`),
       },
       {
         path: "/register",
@@ -63,3 +65,14 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
+//  {
+//         path: "/premium/:id",
+//         element: (
+//           <PrivateRouter>
+//             <Premium></Premium>
+//           </PrivateRouter>
+//         ),
+//         loader: ({ params }) => {
+//           fetch(`https://all-it-sarver.vercel.app/allcources/${params.id}`);
+//         },
+//       },

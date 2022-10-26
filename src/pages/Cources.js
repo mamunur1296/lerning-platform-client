@@ -4,7 +4,6 @@ import SideNav from "../components/RightSideBar/SideNav";
 
 const Cources = () => {
   const catagorys = useLoaderData();
-  console.log(catagorys);
   return (
     <div class="grid md:grid-cols-4 w-11/12 mx-auto gap-4">
       <div class="col-span-3 row-start-2 md:row-start-1  ">
