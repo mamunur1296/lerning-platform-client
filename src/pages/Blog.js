@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../context/AuthProvaider";
 
 const Blog = () => {
+  const { user } = useContext(AuthContext);
   return (
     <div>
       <section>
@@ -50,12 +52,12 @@ const Blog = () => {
                   className="flex items-center"
                 >
                   <img
-                    src="https://source.unsplash.com/50x50/?portrait"
+                    src={user?.photoURL}
                     alt="avatar"
                     className="object-cover w-10 h-10 mx-4 rounded-full bg-gray-500"
                   />
                   <span className="hover:underline text-gray-400">
-                    Leroy Jenkins
+                    {user?.displayName}
                   </span>
                 </a>
               </div>
@@ -100,12 +102,12 @@ const Blog = () => {
                   className="flex items-center"
                 >
                   <img
-                    src="https://source.unsplash.com/50x50/?portrait"
+                    src={user?.photoURL}
                     alt="avatar"
                     className="object-cover w-10 h-10 mx-4 rounded-full bg-gray-500"
                   />
                   <span className="hover:underline text-gray-400">
-                    Leroy Jenkins
+                    {user?.displayName}
                   </span>
                 </a>
               </div>
@@ -201,12 +203,12 @@ const Blog = () => {
                   className="flex items-center"
                 >
                   <img
-                    src="https://source.unsplash.com/50x50/?portrait"
+                    src={user?.photoURL}
                     alt="avatar"
                     className="object-cover w-10 h-10 mx-4 rounded-full bg-gray-500"
                   />
                   <span className="hover:underline text-gray-400">
-                    Leroy Jenkins
+                    {user?.displayName}
                   </span>
                 </a>
               </div>
@@ -251,12 +253,12 @@ const Blog = () => {
                   className="flex items-center"
                 >
                   <img
-                    src="https://source.unsplash.com/50x50/?portrait"
+                    src={user?.photoURL}
                     alt="avatar"
                     className="object-cover w-10 h-10 mx-4 rounded-full bg-gray-500"
                   />
                   <span className="hover:underline text-gray-400">
-                    Leroy Jenkins
+                    {user?.displayName}
                   </span>
                 </a>
               </div>
@@ -316,12 +318,12 @@ const Blog = () => {
                   className="flex items-center"
                 >
                   <img
-                    src="https://source.unsplash.com/50x50/?portrait"
+                    src={user?.photoURL}
                     alt="avatar"
                     className="object-cover w-10 h-10 mx-4 rounded-full bg-gray-500"
                   />
                   <span className="hover:underline text-gray-400">
-                    Leroy Jenkins
+                    {user?.displayName}
                   </span>
                 </a>
               </div>

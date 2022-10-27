@@ -3,11 +3,10 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const Premium = () => {
   const data = useLoaderData();
-
   return (
     <section>
       <div className="flex mx-auto flex-col max-w-3xl p-6 space-y-4 sm:p-10 text-gray-800">
-        <h2 className="text-xl font-semibold">Your cart</h2>
+        <h2 className="text-xl font-semibold">Your card</h2>
         <ul className="flex flex-col divide-y divide-gray-700">
           <li className="flex flex-col py-6 sm:flex-row sm:justify-between">
             <div className="flex w-full space-x-2 sm:space-x-4">

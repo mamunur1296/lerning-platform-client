@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthProvaider";
 
 const Login = () => {
   //error section
   const [error, setError] = useState("");
-  const { login, loginGoogle, loginGithub, setLoding } =
+  const { login, user, loginGoogle, loginGithub, setLoding } =
     useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -16,9 +17,11 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+
     login(email, password)
       .then((res) => {
         const user = res.user;
+        toast.success("log in successfully");
         form.reset();
         navigate(from, { replace: true });
         setError("");
@@ -36,6 +39,7 @@ const Login = () => {
       .then((res) => {
         navigate(from, { replace: true });
         setError("");
+        toast.success("log in successfully");
       })
       .catch((error) => {
         setError(error.message);
@@ -47,6 +51,7 @@ const Login = () => {
       .then((res) => {
         navigate(from, { replace: true });
         setError("");
+        toast.success("log in successfully");
       })
       .catch((error) => {
         setError(error.message);

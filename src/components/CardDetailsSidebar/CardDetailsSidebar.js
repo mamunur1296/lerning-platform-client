@@ -1,11 +1,18 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaUserGraduate } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../context/AuthProvaider";
 import Comunuty from "./Comunuty";
 import Exjesting from "./Exjesting";
 
 const CardDetailsSidebar = ({ data }) => {
+  //data fetch agail
+  const [cprce, setCprce] = useState({});
+  console.log(cprce);
+  useEffect(() => {
+    fetch("https://all-it-sarver.vercel.app/allcources")
+      .then((res) => res.json())
+      .then((data) => setCprce(data));
+  }, []);
   return (
     <section>
       <div className="  mx-auto  md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -61,11 +68,16 @@ const CardDetailsSidebar = ({ data }) => {
           ))}
         </div>
       </div>
-      {/* <div>
-        {exdb?.map((data) => (
+
+      {
+        //explor leter
+        /* <div className="mt-20 ">
+        <p className="text-4xl mb-10 text-red-500">Related Courses</p>
+        {cprce.map((data) => (
           <Exjesting key={data.id} data={data}></Exjesting>
         ))}
-      </div> */}
+      </div>  */
+      }
     </section>
   );
 };

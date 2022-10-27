@@ -1,13 +1,15 @@
 import { useContext, React, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthProvaider";
 
 const Register = () => {
   const [error, setError] = useState("");
-  const { register, updateNamePhoto } = useContext(AuthContext);
+  const { register, user, updateNamePhoto } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  //regis for email and pass
   const handalLoginFrom = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -15,6 +17,10 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
+    if (password.length < 8) {
+      setError("pass Word at lest 8 Digit");
+      return;
+    }
     register(email, password)
       .then((res) => {
         const user = res.user;
@@ -22,6 +28,7 @@ const Register = () => {
         form.reset();
         navigate(from, { replace: true });
         handalUpdateProfile(name, photo);
+        toast.success("your profile updater");
       })
       .catch((error) => {
         console.log(error);
@@ -95,6 +102,7 @@ const Register = () => {
               className="w-full px-4 py-3 rounded-md border-gray-700  text-black focus:border-violet-400"
             />
           </div>
+          <small className="text-red-500">{error}</small>
           <button
             type="submit"
             className="block w-full p-3 text-center rounded-sm text-gray-900 bg-violet-400"

@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import img from "../../assets/favicon.png";
 import { jsPDF } from "jspdf";
 import {
   FaDownload,
-  FaCompressArrowsAlt,
   FaRecordVinyl,
   FaQuestion,
   FaBookOpen,
 } from "react-icons/fa";
+import { AuthContext } from "../../context/AuthProvaider";
 
 const CorceHeader = ({ data }) => {
+  const { user } = useContext(AuthContext);
   const handalPdF = () => {
     const doc = new jsPDF("a4", false);
     doc.addImage(img, "png", 10, 10, 10, 10);
@@ -17,10 +18,47 @@ const CorceHeader = ({ data }) => {
     doc.text(20, 16, "All-It-BD");
     doc.setFontSize(10);
     doc.text(20, 19, "Programing");
-    doc.setFontSize(30);
-    doc.text(40, 40, data.title);
-    doc.setFontSize(40);
-    doc.text(20, 70, "Welcome to your comunutity");
+    doc.setFontSize(20);
+    doc.text(20, 35, "Cource Information");
+    doc.setFontSize(15);
+    doc.text(20, 50, " Student Name :");
+    doc.text(20, 60, " Student Email :");
+    doc.text(20, 70, "Cource Name : ");
+    doc.text(20, 80, "LIVE CLASS : ");
+    doc.text(20, 90, "RECORDED CLASS : ");
+    doc.text(20, 100, " QUESTIONS : ");
+    doc.text(20, 110, "admitted people  : ");
+    doc.text(20, 120, "Price : ");
+    doc.text(20, 150, "About us : ");
+
+    doc.text(80, 70, data.title);
+    doc.text(80, 80, data.subject);
+    doc.text(80, 90, data.class);
+    doc.text(80, 100, data.mcq);
+    doc.text(80, 110, data.inroll);
+    doc.text(80, 120, data.price + "$");
+    doc.text(
+      50,
+      150,
+      "Create portfolio projects that showcase your new skills to help land "
+    );
+    doc.text(
+      20,
+      155,
+      "land your dream job. Master your language with lessons, quizzes, and projects  "
+    );
+    doc.text(
+      20,
+      160,
+      "designed for real-life scenarios.Leader in Online Tech Ed · Level Up Your Skills ·  "
+    );
+    doc.text(
+      20,
+      165,
+      " Beginner-Friendly · Free 7 Day Pro Trial Courses: Python, JavaScript, SQL, Machine   "
+    );
+    doc.text(20, 170, "Learning, HTML, React, CSS  ");
+
     doc.save("all-it-bd-a4.pdf");
   };
   return (
