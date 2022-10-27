@@ -29,7 +29,9 @@ const CorceHeader = ({ data }) => {
     doc.text(20, 100, " QUESTIONS : ");
     doc.text(20, 110, "admitted people  : ");
     doc.text(20, 120, "Price : ");
-    doc.text(20, 150, "About us : ");
+    doc.setFontSize(18);
+    doc.text(20, 150, "About Corce : ");
+    doc.setFontSize(15);
 
     doc.text(80, 70, data.title);
     doc.text(80, 80, data.subject);
@@ -37,27 +39,15 @@ const CorceHeader = ({ data }) => {
     doc.text(80, 100, data.mcq);
     doc.text(80, 110, data.inroll);
     doc.text(80, 120, data.price + "$");
-    doc.text(
-      50,
-      150,
-      "Create portfolio projects that showcase your new skills to help land "
-    );
-    doc.text(
-      20,
-      155,
-      "land your dream job. Master your language with lessons, quizzes, and projects  "
-    );
-    doc.text(
-      20,
-      160,
-      "designed for real-life scenarios.Leader in Online Tech Ed · Level Up Your Skills ·  "
-    );
-    doc.text(
-      20,
-      165,
-      " Beginner-Friendly · Free 7 Day Pro Trial Courses: Python, JavaScript, SQL, Machine   "
-    );
-    doc.text(20, 170, "Learning, HTML, React, CSS  ");
+
+    doc.text(60, 150, data.body.slice(0, 65));
+    doc.text(20, 155, data.body.slice(66, 145));
+    doc.text(20, 160, data.body.slice(146, 225));
+    doc.text(20, 165, data.body.slice(226, 305));
+    doc.text(20, 170, data.body.slice(306, 385));
+    doc.text(20, 170, data.body.slice(386, 465));
+    doc.text(20, 170, data.body.slice(466, 545));
+    doc.text(20, 170, data.body.slice(546, 625));
 
     doc.save("all-it-bd-a4.pdf");
   };
